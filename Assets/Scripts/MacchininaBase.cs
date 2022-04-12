@@ -11,11 +11,13 @@ public class MacchininaBase : MonoBehaviour {
     protected List<GameObject> touchedCheckpoints=new List<GameObject>();
     public Action onLap;
     protected ParticleSystem particleSystem;
+    protected AudioSource bonk;
 
     protected void Start() {
         totalCheckPoints = GameObject.FindGameObjectsWithTag("CheckPoint").Length;
         onLap += CheckWin;
         particleSystem = GetComponent<ParticleSystem>();
+        bonk = GetComponent<AudioSource>();
 
     }
 
@@ -26,7 +28,7 @@ public class MacchininaBase : MonoBehaviour {
 
     protected void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Muri")) {
-            Debug.Log("bonk");
+            bonk.Play();
             currentSpeed = 0;
         }    
     }
@@ -52,6 +54,7 @@ public class MacchininaBase : MonoBehaviour {
         if (lap==LapManager.Instance.maxLap) {
             Time.timeScale = 0;
             Debug.Log(gameObject.name+" Won");
+            LapManager.Instance.music.Stop();
         }
     }
 }

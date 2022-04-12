@@ -11,11 +11,18 @@ public class LapManager : SingletonDDOL<LapManager> {
     public TMP_Text giro;
     public TMP_Text winnerText;
     private MacchininaPlayer player;
+    public AudioClip lastLap;
+    public AudioClip playerLose;
+    public AudioClip congratulation;
+    public AudioClip start;
+    public AudioSource sfx;
+    public AudioSource music;
 
     private void Start() {
 	    player = FindObjectOfType<MacchininaPlayer>();
 	    player.onLap += UpdateUi;
 	    giro.CrossFadeAlpha(0,0,false);
+	    sfx.PlayOneShot(start);
 
     }
 
@@ -27,6 +34,8 @@ public class LapManager : SingletonDDOL<LapManager> {
 	    text.text = $"Lap: {player.lap}";
 	    if (player.lap==maxLap-1) {
 		    giro.text = "Ultimo giro!";
+		    sfx.PlayOneShot(lastLap);
+		    music.pitch = 1.3f;
 	    }
 	    StartCoroutine(TextOn());
     }

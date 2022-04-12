@@ -13,8 +13,13 @@ public class MacchininaPlayer : MacchininaBase {
 	private Rigidbody rb;
 
 	// Start is called before the first frame update
-	void Start() {
+	IEnumerator Start() {
+		float temp = maxSpeed;
+		float temp2 = minSpeed;
+		maxSpeed = 0;
+		minSpeed = 0;
 		base.Start();
+		onLap += OnFinish;
 		rb = GetComponent<Rigidbody>();
 		Player = ReInput.players.GetPlayer(0);
 		Player.AddInputEventDelegate(Accelerate, UpdateLoopType.Update, InputActionEventType.ButtonPressed,
@@ -25,8 +30,15 @@ public class MacchininaPlayer : MacchininaBase {
 			RewiredConsts.Action.Accelerate);
 		Player.AddInputEventDelegate(SetAim, UpdateLoopType.Update, InputActionEventType.Update,
 			RewiredConsts.Action.Steer);
+		yield return new WaitForSeconds(LapManager.Instance.start.length);
+		maxSpeed = temp;
+		minSpeed = temp2;
 	}
-	
+
+	void OnDisable() {
+		base.OnDisable();
+		onLap -= OnFinish;
+	}	
 
 	void Accelerate(InputActionEventData data) {
 		if (!Player.GetButton(RewiredConsts.Action.Break))
@@ -67,6 +79,12 @@ public class MacchininaPlayer : MacchininaBase {
 			Player.SetVibration(1,currentSpeed/maxSpeed,0.5f);
 		}
 	}
-	
+
+	private void OnFinish() {
+		if (lap==LapManager.Instance.maxLap) {
+			LapManager.Instance.sfx.PlayOneShot(LapManager.Instance.congratulation);
+
+		}
+	}
 
 }

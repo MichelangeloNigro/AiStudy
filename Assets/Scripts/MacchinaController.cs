@@ -10,10 +10,13 @@ public class MacchinaController : MacchininaBase {
 	private SharedFloat currSpeedBehavior;
 
 	// Start is called before the first frame update
-	void Start() {
+	IEnumerator Start() {
 		base.Start();
 		onLap += OnFinish;
 		tree = GetComponent<BehaviorTree>();
+		tree.enabled = false;
+		yield return new WaitForSeconds(LapManager.Instance.start.length);
+		tree.enabled = true;
 	}
 
 	private void OnDisable() {
@@ -29,6 +32,9 @@ public class MacchinaController : MacchininaBase {
 
 	private void OnFinish() {
 		Debug.Log(lap + " cpu");
+		if (lap==LapManager.Instance.maxLap) {
+			LapManager.Instance.sfx.PlayOneShot(LapManager.Instance.playerLose);
+		}
 	}
 
 	private void Update() {
