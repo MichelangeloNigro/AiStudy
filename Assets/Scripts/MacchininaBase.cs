@@ -16,7 +16,7 @@ public class MacchininaBase : MonoBehaviour {
         onLap += CheckWin;
     }
 
-    private void OnCollisionEnter(Collision collision) {
+    protected void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Muri")) {
             Debug.Log("bonk");
             currentSpeed = 0;
