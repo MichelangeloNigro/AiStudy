@@ -10,10 +10,18 @@ public class MacchininaBase : MonoBehaviour {
     public int lap;
     protected List<GameObject> touchedCheckpoints=new List<GameObject>();
     public Action onLap;
+    protected ParticleSystem particleSystem;
 
     protected void Start() {
         totalCheckPoints = GameObject.FindGameObjectsWithTag("CheckPoint").Length;
         onLap += CheckWin;
+        particleSystem = GetComponent<ParticleSystem>();
+
+    }
+
+    protected void Update() {
+        var emission = particleSystem.emission;
+        emission.rateOverTime = currentSpeed;
     }
 
     protected void OnCollisionEnter(Collision collision) {

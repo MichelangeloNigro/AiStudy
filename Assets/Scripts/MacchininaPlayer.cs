@@ -10,10 +10,12 @@ public class MacchininaPlayer : MacchininaBase {
 	public float minSpeed;
 	public float steeringspeed;
 	public float accelerationDelta;
+	private Rigidbody rb;
 
 	// Start is called before the first frame update
 	void Start() {
 		base.Start();
+		rb = GetComponent<Rigidbody>();
 		Player = ReInput.players.GetPlayer(0);
 		Player.AddInputEventDelegate(Accelerate, UpdateLoopType.Update, InputActionEventType.ButtonPressed,
 			RewiredConsts.Action.Accelerate);
@@ -47,7 +49,8 @@ public class MacchininaPlayer : MacchininaBase {
 	}
 
 	private void Update() {
-		transform.position += transform.forward * currentSpeed * Time.deltaTime;
+		base.Update();
+		rb.position += transform.forward * currentSpeed * Time.deltaTime;
 	}
 
 	void SetAim(InputActionEventData data) {

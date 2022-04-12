@@ -6,26 +6,34 @@ using BehaviorDesigner.Runtime.Tasks;
 using UnityEngine;
 
 public class MacchinaController : MacchininaBase {
-    public BehaviorTree tree;
-    // Start is called before the first frame update
-    void Start() {
-        base.Start();
-        onLap += OnFinish;
-        tree = GetComponent<BehaviorTree>();
-    }
+	public BehaviorTree tree;
+	private SharedFloat currSpeedBehavior;
 
-    private void OnDisable() {
-        onLap-=OnFinish;
-    }
+	// Start is called before the first frame update
+	void Start() {
+		base.Start();
+		onLap += OnFinish;
+		tree = GetComponent<BehaviorTree>();
+	}
 
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("Muri")) {
-            Debug.Log("bonk");
-            tree.SetVariableValue("CurrentSpeed",currentSpeed);
-        }
-    }
+	private void OnDisable() {
+		onLap -= OnFinish;
+	}
 
-    private void OnFinish() {
-        Debug.Log(lap+" cpu");
-    }
+	private void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.CompareTag("Muri")) {
+			base.OnCollisionEnter(collision);
+			tree.SetVariableValue("CurrentSpeed", currentSpeed);
+		}
+	}
+
+	private void OnFinish() {
+		Debug.Log(lap + " cpu");
+	}
+
+	private void Update() {
+		currSpeedBehavior=tree.GetVariable("CurrentSpeed") as SharedFloat;
+		currentSpeed = currSpeedBehavior.Value;
+		base.Update();
+	}
 }
