@@ -26,6 +26,7 @@ public class MacchininaPlayer : MacchininaBase {
     }
 
     private void OnDisable() {
+        base.OnDisable();
         onLap -= FinishLap;
     }
 

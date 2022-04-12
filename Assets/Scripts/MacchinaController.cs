@@ -15,7 +15,7 @@ public class MacchinaController : MacchininaBase {
     }
 
     private void OnDisable() {
-        onLap -= OnFinish;
+        onLap-=OnFinish;
     }
 
     private void OnCollisionEnter(Collision collision) {

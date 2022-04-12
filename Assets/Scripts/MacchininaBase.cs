@@ -7,12 +7,13 @@ public class MacchininaBase : MonoBehaviour {
     public float currentSpeed;
    static protected int totalCheckPoints;
     protected int touchedCheckPoints;
-    protected int lap;
+    public int lap;
     protected List<GameObject> touchedCheckpoints=new List<GameObject>();
     public Action onLap;
 
     protected void Start() {
         totalCheckPoints = GameObject.FindGameObjectsWithTag("CheckPoint").Length;
+        onLap += CheckWin;
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -32,6 +33,17 @@ public class MacchininaBase : MonoBehaviour {
             touchedCheckPoints = 0;
             lap++;
             onLap();
+        }
+    }
+
+    protected void OnDisable() {
+        onLap -= CheckWin;
+    }
+
+    private void CheckWin() {
+        if (lap==LapManager.Instance.maxLap) {
+            Time.timeScale = 0;
+            Debug.Log(gameObject.name+" Won");
         }
     }
 }
