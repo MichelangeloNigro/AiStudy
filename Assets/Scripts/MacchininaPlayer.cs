@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using Rewired;
 using UnityEngine;
 
-public class MacchininaPlayer : MonoBehaviour {
+public class MacchininaPlayer : MacchininaBase {
     private Player Player;
-    public float currentSpeed;
     public float maxSpeed;
     public float minSpeed;
+    public float steeringspeed;
     public float accelerationDelta;
     // Start is called before the first frame update
     void Start() {
+        onLap += FinishLap;
+        base.Start();
         Player = ReInput.players.GetPlayer(0);
         Player.AddInputEventDelegate(Accelerate, UpdateLoopType.Update, InputActionEventType.ButtonPressed,
             RewiredConsts.Action.Accelerate);
@@ -21,6 +23,10 @@ public class MacchininaPlayer : MonoBehaviour {
             RewiredConsts.Action.Accelerate); 
         Player.AddInputEventDelegate(SetAim, UpdateLoopType.Update, InputActionEventType.AxisActive,
             RewiredConsts.Action.Steer);
+    }
+
+    private void OnDisable() {
+        onLap -= FinishLap;
     }
 
     void Accelerate(InputActionEventData data) {
@@ -38,15 +44,10 @@ public class MacchininaPlayer : MonoBehaviour {
         currentSpeed=Mathf.Clamp(currentSpeed, minSpeed, maxSpeed);
     }
 
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.CompareTag("Muri")) {
-            Debug.Log("bonk");
-            currentSpeed = 0;
-        }    
-    }
+    
 
     private void Update() {
-        transform.position += transform.forward * currentSpeed;
+        transform.position += transform.forward * currentSpeed*Time.deltaTime;
         
     }
     
@@ -54,7 +55,10 @@ public class MacchininaPlayer : MonoBehaviour {
          var angolo = Mathf.Asin(Player.GetAxis(RewiredConsts.Action.Steer));
          angolo = Mathf.Rad2Deg * angolo;
          var raycastDir = Quaternion.Euler(0, angolo, 0) * transform.forward;
-         transform.forward =  Vector3.Lerp(transform.forward,raycastDir,0.01f);
+         transform.forward =  Vector3.Lerp(transform.forward,raycastDir,steeringspeed*Time.deltaTime);
     }
 
+    void FinishLap() {
+        Debug.Log(lap);
+    }
 }
