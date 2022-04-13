@@ -35,6 +35,7 @@ public class MacchininaPlayer : MacchininaBase {
 
 	void OnDisable() {
 		base.OnDisable();
+		Player.ClearInputEventDelegates();
 		onLap -= OnFinish;
 	}
 

@@ -84,7 +84,7 @@ public class MacchininaBase : MonoBehaviour {
 		Time.timeScale = 0;
 		Debug.Log(gameObject.name + " Won");
 		LapManager.Instance.music.Stop();
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSecondsRealtime(3f);
 		SceneManager.LoadScene("MainMenu");
 	}
 
