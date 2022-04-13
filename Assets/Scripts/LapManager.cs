@@ -10,6 +10,7 @@ public class LapManager : Singleton<LapManager> {
     public TMP_Text text;
     public TMP_Text giro;
     public TMP_Text winnerText;
+    public TMP_Text countDown;
     private MacchininaPlayer player;
     public AudioClip lastLap;
     public AudioClip playerLose;
@@ -24,6 +25,7 @@ public class LapManager : Singleton<LapManager> {
 	    giro.CrossFadeAlpha(0,0,false);
 	    sfx.PlayOneShot(start);
 	    text.text = $"Lap: {player.lap} / {maxLap}";
+	    StartCoroutine(CountDown());
 
     }
 
@@ -47,6 +49,18 @@ public class LapManager : Singleton<LapManager> {
 	    giro.CrossFadeAlpha(0,2f,false);
 	    Debug.Log(giro.alpha);
 
+	    
     }
 
+    private IEnumerator CountDown() {
+	    for (int i = 0; i < 4; i++) {
+		    countDown.CrossFadeAlpha(0,0.5f,false);
+		    yield return new WaitForSeconds(0.5f);
+		    countDown.text = $"{3-i}";
+		    countDown.CrossFadeAlpha(1,0.5f,false);
+		    yield return new WaitForSeconds(0.5f);
+
+	    }
+	    countDown.CrossFadeAlpha(0,0.5f,false);
+    }
 }
