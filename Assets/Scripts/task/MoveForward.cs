@@ -5,16 +5,16 @@ using BehaviorDesigner.Runtime.Tasks;
 public class MoveForward : Action
 {
 	public SharedGameObject targetGameObject;
-	private Transform transformSelf;
+	private Rigidbody rb;
 	public SharedFloat currentSpeed;
 	
 	public override void OnStart()
 	{
-		transformSelf = GetDefaultGameObject(targetGameObject.Value).transform;
+		rb = GetDefaultGameObject(targetGameObject.Value).GetComponent<Rigidbody>();
 	}
 
 	public override TaskStatus OnUpdate() {
-		transformSelf.position += transformSelf.forward * currentSpeed.Value;
+		rb.position += transform.forward * currentSpeed.Value;
 		return TaskStatus.Success;
 	}
 }
