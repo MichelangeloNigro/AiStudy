@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Rewired;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MacchininaBase : MonoBehaviour {
 	public float currentSpeed;
@@ -13,7 +14,7 @@ public class MacchininaBase : MonoBehaviour {
 	public Action onLap;
 	protected ParticleSystem particleSystem;
 	protected AudioSource bonk;
-	public bool isBreaking=false;
+	private bool isBreaking=false;
 	public float maxSpeed;
 	public float minSpeed;
 	public float steeringspeed;
@@ -79,11 +80,17 @@ public class MacchininaBase : MonoBehaviour {
 		onLap -= CheckWin;
 	}
 
+	public IEnumerator win() {
+		Time.timeScale = 0;
+		Debug.Log(gameObject.name + " Won");
+		LapManager.Instance.music.Stop();
+		yield return new WaitForSeconds(3f);
+		SceneManager.LoadScene("MainMenu");
+	}
+
 	private void CheckWin() {
 		if (lap == LapManager.Instance.maxLap) {
-			Time.timeScale = 0;
-			Debug.Log(gameObject.name + " Won");
-			LapManager.Instance.music.Stop();
+			StartCoroutine(win());
 		}
 	}
 }

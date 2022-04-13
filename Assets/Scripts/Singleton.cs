@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 namespace Riutilizzabile
 {
-    public class SingletonDDOL<T> : MonoBehaviour where T : MonoBehaviour
+    public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T instance;
         public static T Instance => instance;
@@ -11,7 +11,6 @@ namespace Riutilizzabile
             if (instance == null)
             {
                 instance = this as T;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {

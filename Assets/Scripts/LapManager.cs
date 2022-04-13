@@ -5,7 +5,7 @@ using Riutilizzabile;
 using TMPro;
 using UnityEngine;
 
-public class LapManager : SingletonDDOL<LapManager> {
+public class LapManager : Singleton<LapManager> {
     public int maxLap;
     public TMP_Text text;
     public TMP_Text giro;

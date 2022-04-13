@@ -7,7 +7,7 @@ using Rewired;
 using UnityEngine;
 
 public class MacchinaController : MacchininaBase {
-	public BehaviorTree tree;
+	private BehaviorTree tree;
 	public float breakTreshold;
 	public float decelerateTreshold;
 
