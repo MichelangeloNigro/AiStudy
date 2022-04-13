@@ -18,6 +18,7 @@ public class MacchinaController : MacchininaBase {
 		tree = GetComponent<BehaviorTree>();
 		tree.enabled = false;
 		tree.SetVariableValue("VelocityIncrement", accelerationDelta);
+		tree.SetVariableValue("SteeringSpeed", steeringspeed);
 		tree.SetVariableValue("BreakTreshold", breakTreshold);
 		tree.SetVariableValue("StopAccelerateTreshold", decelerateTreshold);
 		yield return new WaitForSeconds(LapManager.Instance.start.length);

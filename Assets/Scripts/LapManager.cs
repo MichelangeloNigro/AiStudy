@@ -23,6 +23,7 @@ public class LapManager : Singleton<LapManager> {
 	    player.onLap += UpdateUi;
 	    giro.CrossFadeAlpha(0,0,false);
 	    sfx.PlayOneShot(start);
+	    text.text = $"Lap: {player.lap} / {maxLap}";
 
     }
 
@@ -31,11 +32,11 @@ public class LapManager : Singleton<LapManager> {
     }
 
     public void UpdateUi() {
-	    text.text = $"Lap: {player.lap}";
+	    text.text = $"Lap: {player.lap} / {maxLap}";
 	    if (player.lap==maxLap-1) {
 		    giro.text = "Ultimo giro!";
 		    sfx.PlayOneShot(lastLap);
-		    music.pitch = 1.3f;
+		    music.pitch = 1.2f;
 	    }
 	    StartCoroutine(TextOn());
     }

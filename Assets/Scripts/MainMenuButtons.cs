@@ -15,6 +15,7 @@ public class MainMenuButtons : MonoBehaviour {
     public AudioMixer music;
 
     private void Start() {
+        Time.timeScale = 1;
         fade.CrossFadeAlpha(0,2f,true);
     }
 

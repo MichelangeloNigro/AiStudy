@@ -52,11 +52,11 @@ public class MacchininaPlayer : MacchininaBase {
 	}
 
 	private void OnCollisionEnter(Collision collision) {
-		base.OnCollisionEnter(collision);
 		if (collision.gameObject.CompareTag("Muri")) {
 			Player.SetVibration(0,currentSpeed/maxSpeed,0.5f);
 			Player.SetVibration(1,currentSpeed/maxSpeed,0.5f);
 		}
+		base.OnCollisionEnter(collision);
 	}
 
 	private void OnFinish() {

@@ -82,9 +82,10 @@ public class MacchininaBase : MonoBehaviour {
 
 	public IEnumerator win() {
 		Time.timeScale = 0;
-		Debug.Log(gameObject.name + " Won");
+		LapManager.Instance.winnerText.gameObject.SetActive(true);
+		LapManager.Instance.winnerText.text = gameObject.name + " Won";
 		LapManager.Instance.music.Stop();
-		yield return new WaitForSecondsRealtime(3f);
+		yield return new WaitForSecondsRealtime(10f);
 		SceneManager.LoadScene("MainMenu");
 	}
 
