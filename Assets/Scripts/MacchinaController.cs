@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using BehaviorDesigner.Runtime;
-using BehaviorDesigner.Runtime.Tasks;
-using Rewired;
 using UnityEngine;
 
 public class MacchinaController : MacchininaBase {
@@ -13,6 +9,13 @@ public class MacchinaController : MacchininaBase {
 
 	// Start is called before the first frame update
 	IEnumerator Start() {
+		float temp;
+		temp = Random.Range(0.01f, 0.09f);
+		steeringspeed += temp;
+		temp = Random.Range(0.001f, 0.009f);
+		accelerationDelta += temp;
+		temp = Random.Range(0.1f, 0.9f);
+		maxSpeed += temp;
 		base.Start();
 		onLap += OnFinish;
 		tree = GetComponent<BehaviorTree>();

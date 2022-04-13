@@ -181,7 +181,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66351078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 190635828}
   - component: {fileID: 190635830}
   m_Layer: 3
-  m_Name: Macchinina (1)
+  m_Name: Cpu
   m_TagString: Muri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,12 +695,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSpeed: 0
   lap: 0
-  maxSpeed: 10
+  maxSpeed: 8
   minSpeed: -5
-  steeringspeed: 1
+  steeringspeed: 1.6
   accelerationDelta: 0.03
   breakTreshold: 2
-  decelerateTreshold: 6
+  decelerateTreshold: 5
 --- !u!198 &190635828
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5609,7 +5609,7 @@ GameObject:
   - component: {fileID: 386526326}
   - component: {fileID: 386526325}
   - component: {fileID: 386526324}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -5788,7 +5788,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485236936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6735,9 +6735,9 @@ GameObject:
   - component: {fileID: 857064543}
   - component: {fileID: 857064542}
   - component: {fileID: 857064544}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Muri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6750,7 +6750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857064539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.29, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7396,7 +7396,7 @@ GameObject:
   - component: {fileID: 1519685052}
   - component: {fileID: 1519685051}
   - component: {fileID: 1519685053}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Macchinina
   m_TagString: Muri
   m_Icon: {fileID: 0}
@@ -7450,10 +7450,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSpeed: 0
   lap: 0
-  maxSpeed: 25
+  maxSpeed: 15
   minSpeed: -5
-  steeringspeed: 0.58
-  accelerationDelta: 0.05
+  steeringspeed: 0.7
+  accelerationDelta: 0.03
 --- !u!198 &1519685051
 ParticleSystem:
   m_ObjectHideFlags: 0

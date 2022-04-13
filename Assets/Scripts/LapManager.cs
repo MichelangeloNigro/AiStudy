@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class LapManager : Singleton<LapManager> {
     public int maxLap;
+    public static int maxLapstatic;
     public TMP_Text text;
     public TMP_Text giro;
     public TMP_Text winnerText;
@@ -20,6 +21,7 @@ public class LapManager : Singleton<LapManager> {
     public AudioSource music;
 
     private void Start() {
+	    maxLap = maxLapstatic;
 	    player = FindObjectOfType<MacchininaPlayer>();
 	    player.onLap += UpdateUi;
 	    giro.CrossFadeAlpha(0,0,false);
