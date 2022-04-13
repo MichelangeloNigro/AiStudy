@@ -6,10 +6,6 @@ using UnityEngine;
 
 public class MacchininaPlayer : MacchininaBase {
 	private Player Player;
-	public float maxSpeed;
-	public float minSpeed;
-	public float steeringspeed;
-	public float accelerationDelta;
 	private Rigidbody rb;
 
 	// Start is called before the first frame update
@@ -25,6 +21,8 @@ public class MacchininaPlayer : MacchininaBase {
 		Player.AddInputEventDelegate(Accelerate, UpdateLoopType.Update, InputActionEventType.ButtonPressed,
 			RewiredConsts.Action.Accelerate);
 		Player.AddInputEventDelegate(Break, UpdateLoopType.Update, InputActionEventType.ButtonPressed,
+			RewiredConsts.Action.Break); 
+		Player.AddInputEventDelegate(stopBreaking, UpdateLoopType.Update, InputActionEventType.ButtonJustReleased,
 			RewiredConsts.Action.Break);
 		Player.AddInputEventDelegate(Decelerate, UpdateLoopType.Update, InputActionEventType.ButtonUnpressed,
 			RewiredConsts.Action.Accelerate);
@@ -38,26 +36,6 @@ public class MacchininaPlayer : MacchininaBase {
 	void OnDisable() {
 		base.OnDisable();
 		onLap -= OnFinish;
-	}	
-
-	void Accelerate(InputActionEventData data) {
-		if (!Player.GetButton(RewiredConsts.Action.Break))
-		{
-			currentSpeed += accelerationDelta;
-			currentSpeed = Mathf.Clamp(currentSpeed, minSpeed, maxSpeed);
-		}
-	}
-
-	void Break(InputActionEventData data) {
-		currentSpeed -= accelerationDelta*3;
-		currentSpeed = Mathf.Clamp(currentSpeed, minSpeed, maxSpeed);
-	}
-
-	void Decelerate(InputActionEventData data) {
-		if (!Player.GetButton(RewiredConsts.Action.Break)) {
-			currentSpeed -= accelerationDelta * 2;
-			currentSpeed = Mathf.Clamp(currentSpeed, 0, maxSpeed);
-		}
 	}
 
 	private void Update() {

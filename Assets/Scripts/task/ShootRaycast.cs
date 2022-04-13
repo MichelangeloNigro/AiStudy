@@ -12,6 +12,7 @@ public class ShootRaycast : Action {
 	private Transform transformSelf;
 	private Vector3 sum;
 	public SharedVector3 storeResult;
+	public SharedVector3 sumNotNormalized;
 	public override void OnStart() {
 		 transformSelf = GetDefaultGameObject(targetGameObject.Value).transform;
 		mask = LayerMask.GetMask("Muri");
@@ -38,6 +39,7 @@ public class ShootRaycast : Action {
 		}
 		Debug.DrawRay(transformSelf.position,sum,Color.black);
 		storeResult.SetValue(sum.normalized);
+		sumNotNormalized.SetValue(sum);
 		return TaskStatus.Success;
 	}
 }

@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using Rewired;
 using UnityEngine;
 
 public class MacchinaController : MacchininaBase {
 	public BehaviorTree tree;
-	private SharedFloat currSpeedBehavior;
+	public float breakTreshold;
+	public float decelerateTreshold;
 
 	// Start is called before the first frame update
 	IEnumerator Start() {
@@ -15,6 +17,9 @@ public class MacchinaController : MacchininaBase {
 		onLap += OnFinish;
 		tree = GetComponent<BehaviorTree>();
 		tree.enabled = false;
+		tree.SetVariableValue("VelocityIncrement", accelerationDelta);
+		tree.SetVariableValue("BreakTreshold", breakTreshold);
+		tree.SetVariableValue("StopAccelerateTreshold", decelerateTreshold);
 		yield return new WaitForSeconds(LapManager.Instance.start.length);
 		tree.enabled = true;
 	}
@@ -38,8 +43,7 @@ public class MacchinaController : MacchininaBase {
 	}
 
 	private void Update() {
-		currSpeedBehavior=tree.GetVariable("CurrentSpeed") as SharedFloat;
-		currentSpeed = currSpeedBehavior.Value;
+		tree.SetVariableValue("CurrentSpeed",currentSpeed);
 		base.Update();
 	}
 }
