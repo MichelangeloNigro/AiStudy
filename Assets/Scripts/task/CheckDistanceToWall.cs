@@ -13,6 +13,7 @@ public class CheckDistanceToWall : Action {
 
 	public override TaskStatus OnUpdate() {
 		Physics.Raycast(ray,out hit,Mathf.Infinity,LayerMask.GetMask("Muri"));
+		Debug.Log(hit.distance);
 		distance.SetValue(hit.distance);
 		return TaskStatus.Success;
 	}
