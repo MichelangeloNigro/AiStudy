@@ -23,7 +23,8 @@ public class ShootRaycast : Action {
 	public override TaskStatus OnUpdate()
 	{
 		float deltaAngles = (float)maxRange / (NumberOfRaycast - 1);
-		var raycastDir = Quaternion.Euler(0, -maxRange/2f, 0) * transformSelf.forward;
+		Debug.Log(transform.rotation.eulerAngles.x);
+		var raycastDir = Quaternion.Euler(transform.rotation.eulerAngles.x, -maxRange/2f, transform.rotation.eulerAngles.z) * transformSelf.forward;
 		for (int i = 0; i < NumberOfRaycast; i++) { 
 			var raycasthit = new RaycastHit();
 			var ray=new Ray(transformSelf.position, raycastDir);

@@ -22,6 +22,7 @@ public class LapManager : Singleton<LapManager> {
 	public AudioSource sfx;
 	public AudioSource music;
 	public List<MacchininaBase> allMacchinina = new List<MacchininaBase>();
+	public List<MacchininaBase> sortedMacchinina = new List<MacchininaBase>();
 
 	private void Start() {
 		maxLap = maxLapstatic;
@@ -34,30 +35,32 @@ public class LapManager : Singleton<LapManager> {
 		allMacchinina = FindObjectsOfType<MacchininaBase>().ToList();
 	}
 
-	private void Update() {
-		allMacchinina.Sort((x, y) => y.touchedCheckpoints.Count.CompareTo(x.touchedCheckpoints.Count));
+	private void Update()
+	{
+		sortedMacchinina = allMacchinina.OrderByDescending(MacchininaBase => MacchininaBase.lap).ThenByDescending(MacchininaBase => MacchininaBase.touchedCheckpoints.Count ).ThenByDescending(MacchininaBase => MacchininaBase.distanceToNextCheckPoint).ToList();
+		// allMacchinina.Sort((x, y) => y.touchedCheckpoints.Count.CompareTo(x.touchedCheckpoints.Count));
 		for (int i = 0; i < allMacchinina.Count; i++) {
-			allMacchinina[i].position = i+1;
-
+			sortedMacchinina[i].position = i+1;
+		
 		}
-		for (int j = 1; j < allMacchinina.Count; j++) {
-			if (allMacchinina[j].touchedCheckpoints.Count==allMacchinina[j-1].touchedCheckpoints.Count) {
-				if (allMacchinina[j].distanceToNextCheckPoint>allMacchinina[j-1].distanceToNextCheckPoint) {
-					if (allMacchinina[j].position<allMacchinina[j-1].position) {
-						int temp = allMacchinina[j].position;
-						allMacchinina[j].position = allMacchinina[j - 1].position;
-						allMacchinina[j - 1].position = temp;
-					}
-				}
-				if (allMacchinina[j-1].distanceToNextCheckPoint>allMacchinina[j].distanceToNextCheckPoint) {
-					if (allMacchinina[j-1].position<allMacchinina[j].position) {
-						int temp = allMacchinina[j-1].position;
-						allMacchinina[j-1].position = allMacchinina[j].position;
-						allMacchinina[j].position = temp;
-					}
-				}
-			}
-		}
+		// for (int j = 1; j < allMacchinina.Count; j++) {
+		// 	if (allMacchinina[j].touchedCheckpoints.Count==allMacchinina[j-1].touchedCheckpoints.Count) {
+		// 		if (allMacchinina[j].distanceToNextCheckPoint>allMacchinina[j-1].distanceToNextCheckPoint) {
+		// 			if (allMacchinina[j].position<allMacchinina[j-1].position) {
+		// 				int temp = allMacchinina[j].position;
+		// 				allMacchinina[j].position = allMacchinina[j - 1].position;
+		// 				allMacchinina[j - 1].position = temp;
+		// 			}
+		// 		}
+		// 		if (allMacchinina[j-1].distanceToNextCheckPoint>allMacchinina[j].distanceToNextCheckPoint) {
+		// 			if (allMacchinina[j-1].position<allMacchinina[j].position) {
+		// 				int temp = allMacchinina[j-1].position;
+		// 				allMacchinina[j-1].position = allMacchinina[j].position;
+		// 				allMacchinina[j].position = temp;
+		// 			}
+		// 		}
+		// 	}
+		// }
 		Position.text = player.position.ToString();
 		
 	}
