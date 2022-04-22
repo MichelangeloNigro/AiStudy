@@ -8,6 +8,9 @@ TagManager:
   - Muri
   - CheckPoint
   - Traguardo
+  - Pill
+  - Food
+  - Empower
   layers:
   - Default
   - TransparentFX

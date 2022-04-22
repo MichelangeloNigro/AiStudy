@@ -6,7 +6,7 @@ namespace Riutilizzabile
         private static T instance;
         public static T Instance => instance;
 
-        private void Awake()
+        protected void Awake()
         {
             if (instance == null)
             {

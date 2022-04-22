@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: Ghost
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(403.3793,171.20282)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.675653458,113.091049)"},"ID":1,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-182.208862,105.024277)"},"ID":2,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"GetPacmanEmpowered","NodeData":{"Offset":"(-288.184326,129.7608)"},"ID":3,"Name":"Get
+        Pacman Empowered","Instant":true,"SharedBoolEmpowered":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Empowered","IsShared":true,"BooleanmValue":false}},{"Type":"CallFindClosest","NodeData":{"Offset":"(-129.893784,128.427612)"},"ID":4,"Name":"Call
+        Find Closest","Instant":true,"toFindtofind":"Pacman","SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Pacman","IsShared":true},"SharedFloatdistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DistanceToPacman","IsShared":true,"SinglemValue":0}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.SharedVariables.SharedTransformToGameObject","NodeData":{"Offset":"(50.1064148,128.427612)"},"ID":5,"Name":"Shared
+        Transform To Game Object","Instant":true,"SharedTransformsharedTransform":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Pacman","IsShared":true},"SharedGameObjectsharedGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"PacmanObj","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(247.03923,130.558823)"},"ID":6,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-48.54883,130)"},"ID":7,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.Math.BoolComparison","NodeData":{"Offset":"(-83.6863556,129.999969)"},"ID":8,"Name":"Bool
+        Comparison","Instant":true,"SharedBoolbool1":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedBoolbool2":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Empowered","IsShared":true,"BooleanmValue":false}},{"Type":"MoveTo","NodeData":{"Offset":"(75.19606,130)"},"ID":9,"Name":"Move
+        To","Instant":true,"SharedGameObjectTargetToMove":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"PacmanObj","IsShared":true},"SharedFloatvel":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Vel","IsShared":true,"SinglemValue":0},"SharedIntdirection":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":1}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(323.7941,117.471375)"},"ID":10,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.Math.BoolComparison","NodeData":{"Offset":"(-96.73334,132.131165)"},"ID":11,"Name":"Bool
+        Comparison","Instant":true,"SharedBoolbool1":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolbool2":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Empowered","IsShared":true,"BooleanmValue":false}},{"Type":"MoveTo","NodeData":{"Offset":"(119.169006,116.58432)"},"ID":12,"Name":"Move
+        To","Instant":true,"SharedGameObjectTargetToMove":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"PacmanObj","IsShared":true},"SharedFloatvel":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Vel","IsShared":true,"SinglemValue":0},"SharedIntdirection":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":-1}}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Pacman","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"PacmanObj","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Empowered","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Vel","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DistanceToPacman","IsShared":true,"SinglemValue":0}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.7.2

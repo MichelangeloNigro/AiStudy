@@ -17,7 +17,10 @@ public class MoveTo : Action
 		Vector3 dir = TargetToMove.Value.transform.position-transform.position;
 		transform.position += dir.normalized * Time.deltaTime*vel.Value*direction.Value;
 		//transform.position = Vector3.MoveTowards(transform.position, TargetToMove.Value.transform.position, 0.2f*Time.deltaTime);
+		Quaternion toRotation = Quaternion.LookRotation(dir, transform.up);
+		transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, vel.Value/2 * Time.deltaTime);
 		//transform.LookAt(TargetToMove.Value.transform, Vector3.up);
 		return TaskStatus.Success;
 	}
+	
 }
