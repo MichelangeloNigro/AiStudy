@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Pill : MonoBehaviour
@@ -18,6 +19,9 @@ public class Pill : MonoBehaviour
          other.GetComponent<Pacman>().pillsEaten++;
          other.GetComponent<Pacman>().tree.SetVariableValue("DotEaten", other.GetComponent<Pacman>().pillsEaten);
          Manager.Instance.pills.Remove(this);
+         if ( Manager.Instance.pills.Count==0) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+         }
          other.gameObject.GetComponent<Pacman>().tree.SetVariableValue("RemaningDot",Manager.Instance.pills.Count);
          Destroy(this.gameObject);
       }

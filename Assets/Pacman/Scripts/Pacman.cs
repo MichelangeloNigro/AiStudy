@@ -21,6 +21,9 @@ public class Pacman : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy")&&isEmpowered)
         {
             Manager.Instance.ghosts.Remove(collision.gameObject.GetComponent<Ghost>());
+            if (Manager.Instance.ghosts.Count==0) {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
             collision.gameObject.SetActive(false);
         }
     }

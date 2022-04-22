@@ -14,7 +14,7 @@ public class MoveTo : Action
 
 	public override TaskStatus OnUpdate()
 	{
-		Vector3 dir = TargetToMove.Value.transform.position-transform.position*direction.Value;
+		Vector3 dir = (TargetToMove.Value.transform.position-transform.position)*direction.Value;
 		dir=Vector3.ProjectOnPlane(dir, Vector3.up);
 		transform.position += dir.normalized * Time.deltaTime*vel.Value;
 		//transform.position = Vector3.MoveTowards(transform.position, TargetToMove.Value.transform.position, 0.2f*Time.deltaTime);

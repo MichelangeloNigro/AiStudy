@@ -9,6 +9,7 @@ public class MoveLeft : Action {
 	public SharedFloat vel;
 	public SharedGameObject TargetToMove;
 	public SharedFloat maxDistance;
+	public SharedFloat minDistance;
 	public SharedInt rand;
 	public override void OnStart() {
 
@@ -24,6 +25,9 @@ public class MoveLeft : Action {
 		transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, vel.Value/2 * Time.deltaTime);
 		Debug.Log(Vector3.Distance(transform.position, TargetToMove.Value.transform.position));
 		if (Vector3.Distance(transform.position, TargetToMove.Value.transform.position) > maxDistance.Value) {
+			return TaskStatus.Failure;
+		}
+		if (Vector3.Distance(transform.position, TargetToMove.Value.transform.position) < minDistance.Value) {
 			return TaskStatus.Failure;
 		}
 		transform.position +=(Quaternion.Euler(transform.rotation.eulerAngles.x, rand.Value, transform.rotation.eulerAngles.z) * dir).normalized * Time.deltaTime*vel.Value;
