@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Kart/MainMenu.unity
     guid: 06412f9ce1c39b84a8546743f1af2535
   - enabled: 1
-    path: Assets/Scenes/Macchinina.unity
+    path: Assets/Kart/Macchinina.unity
     guid: 9ce72a685a7cce145b971c7b241404fd
   m_configObjects: {}
