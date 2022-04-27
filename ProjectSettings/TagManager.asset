@@ -12,6 +12,7 @@ TagManager:
   - Food
   - Empower
   - Formicaio
+  - Base
   layers:
   - Default
   - TransparentFX

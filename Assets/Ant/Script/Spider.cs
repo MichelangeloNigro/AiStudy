@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spider : MonoBehaviour {
-    public SpiderEyes eyes;
+    public bool antInSight;
+    public GameObject ant;
     // Start is called before the first frame update
     void Start()
     {
