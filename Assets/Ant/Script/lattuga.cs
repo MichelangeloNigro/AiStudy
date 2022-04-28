@@ -5,7 +5,5 @@ using UnityEngine;
 
 public class Lattuga : MonoBehaviour
 {
-	private void OnDisable() {
-		FindObjectOfType<Ant>().eatingFood = false;
-	}
+	
 }
