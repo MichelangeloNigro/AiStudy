@@ -42,10 +42,5 @@ public class Defensive : aereo
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawCube(
-            new Vector3(back.position.x, back.position.y,
-                back.position.z), (new Vector3(3f, 4f, 7f) * boxMultiplier*2) );
-    }
+    
 }

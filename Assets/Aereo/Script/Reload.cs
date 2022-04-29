@@ -8,7 +8,7 @@ public class Reload : Action
     public SharedInt maxAmmo;
     public SharedFloat reloadTime;
     public SharedBool isReloading;
-    private float temp;
+    public SharedFloat temp;
 
     public override void OnStart()
     {
@@ -19,11 +19,11 @@ public class Reload : Action
         if (ammo.Value == 0)
         {
             isReloading.Value = true;
-            if (temp>=reloadTime.Value)
+            if (temp.Value>=reloadTime.Value)
             {
                 realod();
             }
-            temp += Time.deltaTime;
+            temp.Value += Time.deltaTime;
         }
         else
         {
@@ -38,7 +38,7 @@ public class Reload : Action
         ammo.Value = maxAmmo.Value;
         Debug.Log(ammo.Value);
         isReloading.Value = false;
-        temp = 0;
+        temp.Value = 0;
 
     }
 }

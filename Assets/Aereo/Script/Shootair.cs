@@ -19,6 +19,7 @@ public class Shootair : Action {
 				timeTemp = 0;
 				var temp=UnityEngine.GameObject.Instantiate(bullet.Value,transform.position,transform.rotation);
 				temp.GetComponent<Rigidbody>().velocity=transform.forward*bulletVel.Value*Time.deltaTime;
+				Physics.IgnoreCollision(transform.GetComponent<Collider>(),temp.GetComponent<Collider>());
 				ammo.Value--;
 			}
 		}

@@ -4,16 +4,16 @@ using BehaviorDesigner.Runtime.Tasks;
 
 public class SetTargetSpeed : Action
 {
-	public SharedFloat target;
-	public SharedFloat current;
+	public SharedFloat currentSpeed;
+	public SharedFloat maxSpeed;
+	public SharedFloat multiplier;
 	public override void OnStart()
 	{
 		
 	}
 
-	public override TaskStatus OnUpdate()
-	{
-		target.Value = current.Value;
+	public override TaskStatus OnUpdate() {
+		currentSpeed.Value = maxSpeed.Value* multiplier.Value;
 		return TaskStatus.Success;
 	}
 }
