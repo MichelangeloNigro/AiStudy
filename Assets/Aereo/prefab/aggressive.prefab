@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9160358146673112800}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Propeller2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 757365621960395258}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WW2-Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1520487141625787288}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 8515108746881847629}
   - component: {fileID: 1594645793450625113}
   - component: {fileID: 6857274164923428815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlaneShape1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2475752381317215085}
-  m_Layer: 0
+  - component: {fileID: 2024450331}
+  - component: {fileID: 2024450333}
+  - component: {fileID: 2024450334}
+  m_Layer: 7
   m_Name: aggressive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +215,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2024450331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958991402820512215}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWhenEnabled: 1
+  asynchronousLoad: 0
+  pauseWhenDisabled: 0
+  restartWhenComplete: 0
+  logTaskChanges: 0
+  group: 0
+  resetValuesOnRestart: 0
+  externalBehavior: {fileID: 11400000, guid: 21b7ba8800e9adc4b8cb1fcbd50fd9b7, type: 2}
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: 
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: 
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 
+  gizmoViewMode: 2
+  showBehaviorDesignerGizmo: 1
+--- !u!54 &2024450333
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958991402820512215}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!136 &2024450334
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958991402820512215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 20
+  m_Height: 140.83154
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -3.0272217}
 --- !u!1 &3414144620012580185
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3051662847201891158}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +328,7 @@ GameObject:
   - component: {fileID: 8875858536743370195}
   - component: {fileID: 135291119929779213}
   - component: {fileID: 4994156628259601317}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PropellerShape2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2733307657095769874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -370,7 +443,7 @@ GameObject:
   - component: {fileID: 2295434019212717117}
   - component: {fileID: 6586053195221115122}
   - component: {fileID: 56988035900139475}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PropellerShape1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +526,7 @@ GameObject:
   - component: {fileID: 2121875847330686427}
   - component: {fileID: 8537031004517034051}
   - component: {fileID: 4699333493927582210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EngineShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1133910100259489293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Engine_and_Propeller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2633461244331229767}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Propeller1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +676,7 @@ GameObject:
   - component: {fileID: 6720564160767921032}
   - component: {fileID: 8061352840707895492}
   - component: {fileID: 8847243313751161930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PropellerShape3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8281103016873893926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Propeller3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

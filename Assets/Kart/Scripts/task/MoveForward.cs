@@ -14,7 +14,7 @@ public class MoveForward : Action
 	}
 
 	public override TaskStatus OnUpdate() {
-		rb.position += transform.forward * currentSpeed.Value;
+		rb.position += transform.forward * currentSpeed.Value*Time.deltaTime;
 		return TaskStatus.Success;
 	}
 }
