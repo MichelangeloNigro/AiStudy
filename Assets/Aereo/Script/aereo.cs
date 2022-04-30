@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class aereo : MonoBehaviour {
 	public aereo target;
@@ -15,6 +17,19 @@ public class aereo : MonoBehaviour {
 		lifeSlider = GetComponentInChildren<Slider>();
 		lifeSlider.maxValue = health;
 		lifeSlider.value = health;
+		findTarget();
+	}
+
+	private void Update() {
+		if (health<=0) {
+			Destroy(this.gameObject);
+		}
+		if (target==null) {
+			findTarget();
+		}
+	}
+
+	public void findTarget() {
 		otherPlayers = FindObjectsOfType<aereo>();
 		var tempList = otherPlayers.ToList();
 		tempList.Remove(this);
