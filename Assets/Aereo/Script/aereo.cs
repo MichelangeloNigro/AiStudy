@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -20,12 +21,15 @@ public class aereo : MonoBehaviour {
 		findTarget();
 	}
 
-	private void Update() {
+	protected void Update() {
 		if (health<=0) {
 			Destroy(this.gameObject);
 		}
 		if (target==null) {
 			findTarget();
+		}
+		if (otherPlayers.Length==0) {
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 

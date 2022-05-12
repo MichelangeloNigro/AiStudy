@@ -5367,9 +5367,9 @@ MonoBehaviour:
   currentSpeed: 0
   lap: 0
   touchedCheckpoints: []
-  maxSpeed: 8
+  maxSpeed: 7
   minSpeed: -5
-  steeringspeed: 1.35
+  steeringspeed: 1.7
   accelerationDelta: 0.04
   position: 0
   distanceToNextCheckPoint: 0
@@ -6137,7 +6137,7 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"CurrentSpeed","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"VelocityIncrement","IsShared":true,"SinglemValue":0.2},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"SteeringSpeed","IsShared":true,"SinglemValue":0.6},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"LerpResult","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Directio","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DistanceToWall","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DeltaSteering","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DeltaTime","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DeltaSpeed","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"StopAccelerateTreshold","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"BreakTreshold","IsShared":true,"SinglemValue":0}]}'
+      JSONSerialization: '{"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"CurrentSpeed","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"VelocityIncrement","IsShared":true,"SinglemValue":0.2},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"SteeringSpeed","IsShared":true,"SinglemValue":0.6},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"LerpResult","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Directio","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DeltaSteering","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DeltaTime","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DeltaSpeed","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"StopAccelerateTreshold","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"BreakTreshold","IsShared":true,"SinglemValue":0},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"SelfForward2","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"DistanceToWall","IsShared":true,"SinglemValue":0}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -6180,7 +6180,7 @@ MonoBehaviour:
   currentSpeed: 0
   lap: 0
   touchedCheckpoints: []
-  maxSpeed: 9
+  maxSpeed: 7
   minSpeed: -5
   steeringspeed: 1.35
   accelerationDelta: 0.03
@@ -16084,7 +16084,7 @@ MonoBehaviour:
   currentSpeed: 0
   lap: 0
   touchedCheckpoints: []
-  maxSpeed: 8
+  maxSpeed: 7
   minSpeed: -5
   steeringspeed: 1.3
   accelerationDelta: 0.03
@@ -30768,7 +30768,7 @@ MonoBehaviour:
   currentSpeed: 0
   lap: 0
   touchedCheckpoints: []
-  maxSpeed: 8
+  maxSpeed: 7
   minSpeed: -5
   steeringspeed: 2
   accelerationDelta: 0.03

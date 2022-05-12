@@ -26,6 +26,7 @@ public class Defensive : aereo
     // Update is called once per frame
     void Update()
     {
+        base.Update();
         hits = null;
         hasSomeoneBehind = false;
         hits = Physics.OverlapBox(

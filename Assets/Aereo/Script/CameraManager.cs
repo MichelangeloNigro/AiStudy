@@ -8,12 +8,12 @@ public class CameraManager : MonoBehaviour {
     private Camera currentCamera;
     // Start is called before the first frame update
     void Start() {
-        allCameras = FindObjectsOfType<Camera>(true).ToList();
         currentCamera = FindObjectOfType<Camera>(false);
     }
 
     // Update is called once per frame
     void Update() {
+        allCameras = FindObjectsOfType<Camera>(true).ToList();
         if (Input.GetKeyDown(KeyCode.A)) {
             currentCamera.enabled = false;
             currentCamera = allCameras[(allCameras.IndexOf(currentCamera) + 1)%allCameras.Count];
